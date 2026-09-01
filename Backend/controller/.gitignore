@@ -27,3 +27,5 @@ Thumbs.db
 
 # Other
 *.log
+
+Backend/config/config.env

@@ -89,7 +89,7 @@ const SOSFloatingButton = () => {
 
           // ✅ Navigate to /sos page with data
           navigate("/sos", {
-            state: {
+             state: {
               distance: data.distance,
               eta: data.eta,
             },

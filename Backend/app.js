@@ -33,7 +33,7 @@ app.use("/api/v1/sos", sosRoutes);
 
 
 
-app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
