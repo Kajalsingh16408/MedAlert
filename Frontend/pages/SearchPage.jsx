@@ -36,7 +36,7 @@ const SearchPage = () => {
     setError("");
     try {
       const res = await axios.get(
-        `http://localhost:4000/api/hospitals/nearby?city=${city}&area=${area}&radius=${radius}&specialty=${doctor}`
+        `https://medalert-3thk.onrender.com/api/hospitals/nearby?city=${city}&area=${area}&radius=${radius}&specialty=${doctor}`
       );
       setResults(res.data);
       console.log(res.data);

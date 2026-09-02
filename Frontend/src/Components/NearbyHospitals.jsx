@@ -71,7 +71,7 @@ const NearbyHospitals = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:4000/api/hospitals/nearby?city=${city}&area=${area}&radius=${radius}&doctor=${doctor}`
+        `https://medalert-3thk.onrender.com/api/hospitals/nearby?city=${city}&area=${area}&radius=${radius}&doctor=${doctor}`
       );
       const data = await res.json();
       setResults(data);

@@ -1,57 +1,3 @@
-// import React, { useState } from "react";
-
-// const SOSFloatingButton = () => {
-//   const [loading, setLoading] = useState(false);
-
-//   const handleSOS = () => {
-//     const confirmSOS = window.confirm(
-//       "🚨 Emergency SOS\n\nThis will share your live location with nearby hospitals.\nDo you want to continue?"
-//     );
-
-//     if (!confirmSOS) return;
-
-//     if (!navigator.geolocation) {
-//       alert("Geolocation is not supported by your browser");
-//       return;
-//     }
-
-//     setLoading(true);
-
-//     navigator.geolocation.getCurrentPosition(
-//       (position) => {
-//         const emergencyData = {
-//           latitude: position.coords.latitude,
-//           longitude: position.coords.longitude,
-//           timestamp: new Date().toISOString(),
-//         };
-
-//         console.log("🚑 SOS Triggered:", emergencyData);
-
-//         alert("✅ SOS sent successfully!\nHelp is being notified.");
-//         setLoading(false);
-//       },
-//       (error) => {
-//         alert("❌ Unable to access location. Please enable GPS.");
-//         setLoading(false);
-//       },
-//       { enableHighAccuracy: true }
-//     );
-//   };
-
-//   return (
-//     <button
-//       onClick={handleSOS}
-//       className="sos-floating-btn"
-//       disabled={loading}
-//     >
-//       {loading ? "Sending..." : "SOS"}
-//     </button>
-//   );
-// };
-
-// export default SOSFloatingButton;
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -82,7 +28,7 @@ const SOSFloatingButton = () => {
 
           // 🔥 Backend call
           const { data } = await axios.post(
-            "http://localhost:4000/api/v1/sos/create",
+            "https://medalert-3thk.onrender.com/api/v1/sos/create",
             { latitude, longitude },
             { withCredentials: true }
           );
