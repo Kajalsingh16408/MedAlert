@@ -1,8 +1,8 @@
 export const generateToken = (user, message, statusCode, res) => {
   const token = user.generateJsonWebToken();
 
-  // 🔑 role ke hisaab se cookie name
-  const cookieName = user.role === "Admin" ? "adminToken" : "patientToken";
+  const cookieName =
+    user.role === "Admin" ? "adminToken" : "patientToken";
 
   const cookieExpireDays = Number(process.env.COOKIE_EXPIRE) || 7;
 
@@ -10,8 +10,8 @@ export const generateToken = (user, message, statusCode, res) => {
     .status(statusCode)
     .cookie(cookieName, token, {
       httpOnly: true,
-      secure: false,        // ⚠️ localhost ke liye FALSE
-      sameSite: "Lax",      // ⚠️ localhost ke liye Lax
+      secure: true,
+      sameSite: "None",
       maxAge: cookieExpireDays * 24 * 60 * 60 * 1000,
     })
     .json({

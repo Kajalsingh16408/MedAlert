@@ -155,7 +155,7 @@ npm start
 
 The backend will run on:
 
-http://localhost:4000
+http://import.meta.env.VITE_API_URL
 🔹 Frontend Setup
 
 Open another terminal and navigate to the frontend:
