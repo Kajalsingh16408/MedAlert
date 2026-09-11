@@ -12,7 +12,7 @@ const HospitalDetails = () => {
   useEffect(() => {
     const fetchHospital = async () => {
       try {
-        const res = await axios.get(`https://medalert-3thk.onrender.com/api/hospitals/${id}`);
+        const res = await axios.get(`https://medalert-backend-nxwy.onrender.com/api/hospitals/${id}`);
         setHospital(res.data);
         setLoading(false);
       } catch (err) {
@@ -26,7 +26,7 @@ const HospitalDetails = () => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`https://medalert-3thk.onrender.com/api/hospitals/${id}/review`, newReview);
+      await axios.post(`https://medalert-backend-nxwy.onrender.com/api/hospitals/${id}/review`, newReview);
       alert("Review submitted!");
       setNewReview({ user: "", comment: "", rating: 0 });
     } catch (err) {

@@ -37,7 +37,7 @@ const AppointmentForm = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "https://medalert-3thk.onrender.com/api/v1/user/doctors",
+          "https://medalert-backend-nxwy.onrender.com/api/v1/user/doctors",
           { withCredentials: true }
         );
         setDoctors(data.doctors);
@@ -55,7 +55,7 @@ const AppointmentForm = () => {
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "https://medalert-3thk.onrender.com/api/v1/appointment/post",
+        "https://medalert-backend-nxwy.onrender.com/api/v1/appointment/post",
         {
           firstName,
           lastName,

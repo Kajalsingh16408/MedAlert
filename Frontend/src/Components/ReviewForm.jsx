@@ -12,7 +12,7 @@ const ReviewForm = ({ hospitalId }) => {
     const fetchHospital = async () => {
       try {
         const { data } = await axios.get(
-          `https://medalert-3thk.onrender.com/api/hospitals/${hospitalId}`
+          `https://medalert-backend-nxwy.onrender.com/api/hospitals/${hospitalId}`
         );
         setHospital(data);
       } catch (err) {
@@ -26,7 +26,7 @@ const ReviewForm = ({ hospitalId }) => {
   const submitReview = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`https://medalert-3thk.onrender.com/api/hospitals/${hospitalId}/review`, {
+      await axios.post(`https://medalert-backend-nxwy.onrender.com/api/hospitals/${hospitalId}/review`, {
         user,
         comment,
         rating: Number(rating),
@@ -37,7 +37,7 @@ const ReviewForm = ({ hospitalId }) => {
       setRating(0);
       // Refresh reviews
       const { data } = await axios.get(
-        `https://medalert-3thk.onrender.com/api/hospitals/${hospitalId}`
+        `https://medalert-backend-nxwy.onrender.com/api/hospitals/${hospitalId}`
       );
       setHospital(data);
     } catch (err) {

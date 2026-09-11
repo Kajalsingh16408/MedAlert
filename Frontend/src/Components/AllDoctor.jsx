@@ -9,7 +9,7 @@ const AllDoctor = () => {
 
   useEffect(() => {
     axios
-      .get("https://medalert-3thk.onrender.com/api/doctors")
+      .get("https://medalert-backend-nxwy.onrender.com/api/doctors")
       .then((res) => {
         setDoctors(res.data);
         setFiltered(res.data);

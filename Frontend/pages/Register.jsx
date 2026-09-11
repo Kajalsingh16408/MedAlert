@@ -29,7 +29,7 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "https://medalert-3thk.onrender.com/api/v1/user/patient/register",
+        "https://medalert-backend-nxwy.onrender.com/api/v1/user/patient/register",
         {
           firstName,
           lastName,

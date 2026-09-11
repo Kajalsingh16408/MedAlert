@@ -16,7 +16,7 @@ const handleMessage = async (e) => {
   e.preventDefault();
   try {
     const { data } = await axios.post(
-      "https://medalert-3thk.onrender.com/api/v1/message/send",
+      "https://medalert-backend-nxwy.onrender.com/api/v1/message/send",
       { firstName, lastName, email, phone, message },
       {
         withCredentials: true,

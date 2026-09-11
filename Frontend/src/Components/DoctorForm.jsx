@@ -13,7 +13,7 @@ const DoctorForm = () => {
 
   // ✅ Fetch hospitals on load
   useEffect(() => {
-    fetch("https://medalert-3thk.onrender.com/api/hospitals")
+    fetch("https://medalert-backend-nxwy.onrender.com/api/hospitals")
       .then((res) => res.json())
       .then((data) => setHospitals(data))
       .catch((err) => console.error("Failed to fetch hospitals", err));
@@ -34,7 +34,7 @@ const DoctorForm = () => {
     setMessage("");
 
     try {
-      const res = await fetch("https://medalert-3thk.onrender.com/api/doctors", {
+      const res = await fetch("https://medalert-backend-nxwy.onrender.com/api/doctors", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

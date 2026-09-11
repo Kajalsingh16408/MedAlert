@@ -33,7 +33,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://medalert-3thk.onrender.com/api/v1/user/patient/me",
+          "https://medalert-backend-nxwy.onrender.com/api/v1/user/patient/me",
           { withCredentials: true }
         );
 

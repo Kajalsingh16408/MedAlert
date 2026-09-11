@@ -16,7 +16,7 @@ const Login = ({ role = "Patient" }) => {
 
     try {
       const response = await axios.post(
-        "https://medalert-3thk.onrender.com/api/v1/user/login",
+        "https://medalert-backend-nxwy.onrender.com/api/v1/user/login",
         {
           email,
           password,

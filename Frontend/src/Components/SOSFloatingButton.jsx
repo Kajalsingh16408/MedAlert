@@ -28,7 +28,7 @@ const SOSFloatingButton = () => {
 
           // 🔥 Backend call
           const { data } = await axios.post(
-            "https://medalert-3thk.onrender.com/api/v1/sos/create",
+            "https://medalert-backend-nxwy.onrender.com/api/v1/sos/create",
             { latitude, longitude },
             { withCredentials: true }
           );
