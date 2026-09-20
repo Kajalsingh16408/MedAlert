@@ -4,12 +4,13 @@ import { Navigate, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Login = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
 
   const navigateTo = useNavigate();
 
@@ -18,8 +19,8 @@ const Login = () => {
     try {
       await axios
         .post(
-          "http://localhost:4000/api/v1/user/login",
-          { email, password, confirmPassword, role: "Admin" },
+          "https://medalert-backend-nxwy.onrender.com/api/v1/user/admin/login",
+          { email, password },
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
@@ -29,12 +30,11 @@ const Login = () => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
           navigateTo("/");
-          // setEmail("");
-          // setPassword("");
-          // setConfirmPassword("");
         });
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(
+        error.response?.data?.message || "Unable to connect to server"
+      );
     }
   };
 
@@ -67,12 +67,6 @@ const Login = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <div style={{ justifyContent: "center", alignItems: "center" }}>
             <button type="submit">Login</button>

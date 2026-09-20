@@ -75,6 +75,35 @@ export const login = catchAsyncErrors(async (req, res, next) => {
   generateToken(user, "Login Successful!", 200, res);
 });
 
+
+export const adminLogin = catchAsyncErrors(async (req, res, next) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return next(
+      new ErrorHandler("Please enter email and password", 400)
+    );
+  }
+
+  const admin = await User.findOne({ email }).select("+password");
+
+  if (!admin) {
+    return next(new ErrorHandler("Invalid Email or Password", 400));
+  }
+
+  const isPasswordMatch = await admin.comparePassword(password);
+
+  if (!isPasswordMatch) {
+    return next(new ErrorHandler("Invalid Email or Password", 400));
+  }
+
+  if (admin.role !== "Admin") {
+    return next(new ErrorHandler("Access denied", 403));
+  }
+
+  generateToken(admin, "Admin Login Successful!", 200, res);
+});
+
 /* =========================
    ADD NEW ADMIN
 ========================= */

@@ -11,6 +11,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Sidebar = () => {
     const [show, setShow] = useState(false);
     const { isAuthenticated, setIsAuthenticated } = useContext(Context);
@@ -38,7 +39,7 @@ const Sidebar = () => {
     };
     const handleLogout = async () => {
         await axios
-            .get("http://localhost:4000/api/v1/user/admin/logout", {
+            .get("https://medalert-backend-nxwy.onrender.com/api/v1/user/admin/logout", {
                 withCredentials: true,
             })
             .then((res) => {
